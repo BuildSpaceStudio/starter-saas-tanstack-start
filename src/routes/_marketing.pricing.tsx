@@ -8,33 +8,28 @@ const tiers = [
   {
     name: 'Starter',
     price: '$0',
-    description: 'For early validation and your first handful of users.',
-    points: [
-      'Hosted sign-up flow',
-      'Dashboard shell',
-      'Starter analytics events',
-    ],
+    description: 'For early validation and your first handful of customers.',
+    points: ['Core product access', 'Standard dashboards', 'Community support'],
   },
   {
     name: 'Pro',
     price: '$49',
-    description: 'For founders who want a stronger admin and ops baseline.',
+    description: 'For growing teams that need speed and clearer reporting.',
     points: [
       'Everything in Starter',
-      'Admin workflow patterns',
-      'Notification starter templates',
+      'Advanced reporting',
+      'Priority email support',
     ],
     featured: true,
   },
   {
     name: 'Scale',
     price: '$199',
-    description:
-      'For teams layering product-specific complexity on top of the starter.',
+    description: 'For organizations with compliance and rollout needs.',
     points: [
       'Everything in Pro',
-      'Priority placeholder support',
-      'Custom data extensions',
+      'Dedicated success contact',
+      'Custom onboarding',
     ],
   },
 ]
@@ -46,7 +41,7 @@ export const Route = createFileRoute('/_marketing/pricing')({
       {
         name: 'description',
         content:
-          'Placeholder pricing page for the TanStack Start SaaS starter.',
+          'Illustrative pricing tiers you can replace with your real plans.',
       },
     ],
   }),
@@ -67,11 +62,11 @@ function PricingPage() {
           Pricing
         </p>
         <h1 className="mt-4 font-serif text-5xl">
-          Swap in your real monetization story later.
+          Plans that read well until billing goes live.
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          The starter ships with plausible structure and placeholder values so
-          your pricing page is never the thing blocking launch polish.
+          These numbers and bullets are samples—update them when you connect
+          your payment provider and packaging.
         </p>
       </div>
       <div className="mt-14 grid gap-5 lg:grid-cols-3">

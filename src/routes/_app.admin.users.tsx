@@ -48,6 +48,7 @@ export const Route = createFileRoute('/_app/admin/users')({
 })
 
 function AdminUsersPage() {
+  const { viewer } = Route.useRouteContext()
   const search = Route.useSearch()
   const navigate = Route.useNavigate()
   const queryClient = useQueryClient()
@@ -77,8 +78,8 @@ function AdminUsersPage() {
           <div>
             <CardTitle>User management</CardTitle>
             <CardDescription>
-              Search params power the admin table state so filters stay
-              shareable and router-native.
+              Search and filters update the URL so you can bookmark or share a
+              view of the directory.
             </CardDescription>
           </div>
           <Button asChild variant="ghost">
@@ -139,49 +140,65 @@ function AdminUsersPage() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {usersQuery.data.users.map((user) => (
-              <TableRow key={user.id}>
-                <TableCell>
-                  <div>
-                    <p className="font-medium">{user.name ?? 'Unnamed user'}</p>
-                    <p className="text-xs text-muted-foreground">
-                      {user.email}
-                    </p>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <Badge
-                    variant={
-                      user.role === 'super_admin' ? 'default' : 'secondary'
-                    }
-                  >
-                    {user.role === 'super_admin' ? 'Super admin' : 'Member'}
-                  </Badge>
-                </TableCell>
-                <TableCell>{formatDate(user.createdAt)}</TableCell>
-                <TableCell className="text-right">
-                  <Button
-                    disabled={roleMutation.isPending}
-                    onClick={() =>
-                      roleMutation.mutate({
-                        data: {
-                          userId: user.id,
-                          role:
-                            user.role === 'super_admin'
-                              ? 'member'
-                              : 'super_admin',
-                        },
-                      })
-                    }
-                    size="sm"
-                    variant="outline"
-                  >
-                    Make{' '}
-                    {user.role === 'super_admin' ? 'member' : 'super admin'}
-                  </Button>
-                </TableCell>
-              </TableRow>
-            ))}
+            {usersQuery.data.users.map((user) => {
+              const isOwnSuperAdminRow =
+                user.id === viewer.localUser.id && user.role === 'super_admin'
+
+              return (
+                <TableRow key={user.id}>
+                  <TableCell>
+                    <div>
+                      <p className="font-medium">
+                        {user.name ?? 'Unnamed user'}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {user.email}
+                      </p>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <Badge
+                      variant={
+                        user.role === 'super_admin' ? 'default' : 'secondary'
+                      }
+                    >
+                      {user.role === 'super_admin' ? 'Super admin' : 'Member'}
+                    </Badge>
+                  </TableCell>
+                  <TableCell>{formatDate(user.createdAt)}</TableCell>
+                  <TableCell className="text-right">
+                    {isOwnSuperAdminRow ? (
+                      <span
+                        className="text-sm text-muted-foreground"
+                        title="Another super admin can change your role if needed."
+                      >
+                        Your account
+                      </span>
+                    ) : (
+                      <Button
+                        disabled={roleMutation.isPending}
+                        onClick={() =>
+                          roleMutation.mutate({
+                            data: {
+                              userId: user.id,
+                              role:
+                                user.role === 'super_admin'
+                                  ? 'member'
+                                  : 'super_admin',
+                            },
+                          })
+                        }
+                        size="sm"
+                        variant="outline"
+                      >
+                        Make{' '}
+                        {user.role === 'super_admin' ? 'member' : 'super admin'}
+                      </Button>
+                    )}
+                  </TableCell>
+                </TableRow>
+              )
+            })}
           </TableBody>
         </Table>
 

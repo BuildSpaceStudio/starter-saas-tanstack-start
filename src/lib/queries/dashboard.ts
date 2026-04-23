@@ -72,23 +72,23 @@ export const fetchDashboardData = createServerFn({ method: 'GET' }).handler(
         {
           label: 'Active members',
           value: `${allUsers.length}`,
-          detail: 'Total local users in this environment',
+          detail: 'People with access to this workspace',
         },
         {
           label: 'Super admins',
           value: `${superAdminCount}`,
-          detail: 'Server-enforced admin access',
+          detail: 'Accounts that can open admin tools',
         },
         {
           label: 'Marketing opt-in',
           value: `${allUsers.length === 0 ? 0 : Math.round((optedInCount / allUsers.length) * 100)}%`,
-          detail: 'Users who opted into future marketing mail',
+          detail: 'Members who agreed to product updates email',
         },
         {
           label: 'Your role',
           value:
             session.localUser.role === 'super_admin' ? 'Super admin' : 'Member',
-          detail: 'Assigned on first successful sign-in',
+          detail: 'Based on how this account was provisioned',
         },
       ],
       chart,

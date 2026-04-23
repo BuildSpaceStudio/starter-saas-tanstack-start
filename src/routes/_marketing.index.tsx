@@ -5,9 +5,9 @@ import {
   Bell,
   CreditCard,
   Lock,
-  Radar,
   Sparkles,
   Users,
+  Zap,
 } from 'lucide-react'
 import {
   Accordion,
@@ -22,63 +22,63 @@ import { getBrowserClient } from '@/lib/buildspace/client'
 
 const features = [
   {
-    title: 'Hosted auth in minutes',
+    title: 'Get productive faster',
     description:
-      'Redirect into Buildspace auth, come back with a secure session cookie, and keep route protection server-trusted.',
-    icon: Lock,
+      'Onboarding, dashboards, and settings are laid out so your team can start work without a blank screen.',
+    icon: Zap,
   },
   {
-    title: 'Dashboard-ready data layer',
+    title: 'Insights at a glance',
     description:
-      'Drizzle and libSQL are wired for creators who want a familiar schema-and-query flow without the setup tax.',
+      'Surface the metrics your customers care about—revenue, usage, or health scores—in a layout you can extend.',
     icon: BarChart3,
   },
   {
-    title: 'Admin controls included',
+    title: 'Built for teams',
     description:
-      'The first user becomes super admin, so founders can inspect users and prove out role-gated routes immediately.',
+      'Roles, invitations, and an admin area give you a credible story for how your product scales past the first user.',
     icon: Users,
   },
   {
-    title: 'Product analytics hooks',
+    title: 'Security-minded defaults',
     description:
-      'Core lifecycle events are already modeled so you can start tracking activity from day one.',
-    icon: Radar,
+      'Sign-in stays on a hosted flow, sessions are handled for you, and protected routes stay server-checked.',
+    icon: Lock,
   },
   {
-    title: 'Built-in notifications',
+    title: 'Stay in touch with customers',
     description:
-      'Welcome messages, admin invites, and account lifecycle helpers all flow through Buildspace notifications.',
+      'Transactional messages and preference toggles are wired so account emails feel intentional, not improvised.',
     icon: Bell,
   },
   {
-    title: 'Pricing and conversion polish',
+    title: 'Pricing that looks real',
     description:
-      'A premium-looking marketing shell keeps your first launch from feeling like a raw starter repo.',
+      'Marketing and in-app pricing sections use believable copy and tiers you can swap when billing is ready.',
     icon: CreditCard,
   },
 ]
 
 const faqs = [
   {
-    question: 'Can I change every section and route later?',
+    question: 'Can we change the copy and layout?',
     answer:
-      'Yes. The starter is intentionally thin in business logic and heavy on structure, so founders can swap copy, visuals, schema, and product flows quickly.',
+      'Yes. Treat every section as a starting point—headlines, features, FAQs, and pricing are meant to be replaced with your product story.',
   },
   {
-    question: 'Does this starter create custom auth forms?',
+    question: 'Where does sign-in happen?',
     answer:
-      'No. Auth stays on the hosted Buildspace flow so you keep secure callbacks, session handling, and less auth surface area to maintain.',
+      'Users complete sign-in on a secure hosted flow, then land back in your app with a normal session—no custom password forms to maintain here.',
   },
   {
-    question: 'Is billing wired out of the box?',
+    question: 'Is billing included?',
     answer:
-      'No. Pricing is placeholder-only so you can layer in your billing provider without undoing starter-specific assumptions.',
+      'No. Tiers and prices are illustrative so you can plug in Stripe, Paddle, or another provider when you are ready.',
   },
   {
-    question: 'Can I deploy this as a normal Node app?',
+    question: 'How do we deploy?',
     answer:
-      'Yes. The TanStack Start build outputs a standard Node server under `.output/server/index.mjs` that fits Railway cleanly.',
+      'The app builds to a standard Node server bundle, so most PaaS hosts that run Node work without special casing.',
   },
 ]
 
@@ -89,7 +89,7 @@ export const Route = createFileRoute('/_marketing/')({
       {
         name: 'description',
         content:
-          'Placeholder marketing shell for a Buildspace-powered SaaS starter built on TanStack Start.',
+          'Launch-ready marketing site, customer dashboard, and admin tools—customize the story and ship.',
       },
     ],
   }),
@@ -114,17 +114,17 @@ function MarketingHome() {
         <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6 py-24 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-8">
             <Badge className="rounded-full px-4 py-1.5" variant="outline">
-              Built for fast-moving founders
+              For teams shipping a credible v1
             </Badge>
             <div className="space-y-6">
               <h1 className="max-w-3xl font-serif text-5xl leading-none sm:text-6xl lg:text-7xl">
-                Your SaaS headline goes here, but the product structure is
-                already done.
+                The headline for your product belongs here—everything around it
+                is ready to customize.
               </h1>
               <p className="max-w-2xl text-lg text-muted-foreground">
-                Ship a polished marketing site, hosted auth flow, query-driven
-                dashboard, admin surface, and transactional email baseline
-                without wiring the platform glue yourself.
+                A polished marketing site, customer home, settings, and
+                super-admin tools—so your next sprint goes to product
+                differentiation, not scaffolding.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -140,27 +140,27 @@ function MarketingHome() {
             <CardContent className="space-y-6 p-8">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-slate-400">Launch kit</p>
-                  <p className="text-2xl font-semibold">Ready on day one</p>
+                  <p className="text-sm text-slate-400">This week (sample)</p>
+                  <p className="text-2xl font-semibold">$24.8k revenue</p>
                 </div>
                 <Sparkles className="h-8 w-8 text-sky-300" />
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-slate-400">Auth callback</p>
-                  <p className="mt-2 text-3xl font-semibold">Hosted</p>
+                  <p className="text-sm text-slate-400">New customers</p>
+                  <p className="mt-2 text-3xl font-semibold">+186</p>
                 </div>
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-slate-400">App shell</p>
-                  <p className="mt-2 text-3xl font-semibold">Query-first</p>
+                  <p className="text-sm text-slate-400">Active trials</p>
+                  <p className="mt-2 text-3xl font-semibold">412</p>
                 </div>
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-slate-400">Admin role</p>
-                  <p className="mt-2 text-3xl font-semibold">Built-in</p>
+                  <p className="text-sm text-slate-400">NPS (demo)</p>
+                  <p className="mt-2 text-3xl font-semibold">54</p>
                 </div>
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-slate-400">Deploy shape</p>
-                  <p className="mt-2 text-3xl font-semibold">Node-ready</p>
+                  <p className="text-sm text-slate-400">Churn</p>
+                  <p className="mt-2 text-3xl font-semibold">1.2%</p>
                 </div>
               </div>
             </CardContent>
@@ -170,10 +170,10 @@ function MarketingHome() {
 
       <section className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid gap-4 rounded-[2rem] border border-border/70 bg-card/60 p-6 text-sm text-muted-foreground sm:grid-cols-4">
-          <p>TanStack Start</p>
-          <p>Buildspace auth + notifications</p>
-          <p>Drizzle + libSQL</p>
-          <p>shadcn/ui + Tailwind</p>
+          <p>99.9% uptime (illustrative)</p>
+          <p>Teams in 40+ countries (sample)</p>
+          <p>Average setup under an hour</p>
+          <p>Human support on Pro and Scale</p>
         </div>
       </section>
 
@@ -183,11 +183,11 @@ function MarketingHome() {
             Features
           </p>
           <h2 className="font-serif text-4xl">
-            A serious starter, not a router demo.
+            Everything you need for a serious first release.
           </h2>
           <p className="text-muted-foreground">
-            The starter focuses on founder-shaped product surfaces so your first
-            week goes into product decisions, not framework glue.
+            These blocks read like a real product—not a framework demo—so
+            stakeholders see a credible surface on day one.
           </p>
         </div>
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -218,33 +218,33 @@ function MarketingHome() {
           <CardContent className="grid gap-8 p-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div className="space-y-4">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Testimonial
+                Social proof
               </p>
               <blockquote className="font-serif text-3xl leading-tight">
-                “We replaced a weekend of auth, admin, and dashboard setup with
-                an afternoon of customizing copy and product ideas.”
+                “We went from a blank repo to a presentable beta in days—the
+                structure was already there; we only had to tell our story.”
               </blockquote>
               <p className="text-sm text-muted-foreground">
-                Placeholder founder quote. Replace with your own customer proof
-                before launch.
+                Placeholder quote. Drop in a customer logo or testimonial before
+                you go live.
               </p>
             </div>
             <div className="rounded-[1.75rem] border border-border/70 bg-background/80 p-6">
               <p className="text-sm text-muted-foreground">
-                What this saves you
+                What teams finish first
               </p>
               <div className="mt-6 space-y-4">
                 <div className="flex items-center justify-between text-sm">
-                  <span>Hosted auth + callback routes</span>
-                  <span className="font-semibold">Done</span>
+                  <span>Marketing + pricing pages</span>
+                  <span className="font-semibold">Included</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span>Drizzle schema + migrations</span>
-                  <span className="font-semibold">Done</span>
+                  <span>Authenticated app shell</span>
+                  <span className="font-semibold">Included</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span>Admin shell + role guards</span>
-                  <span className="font-semibold">Done</span>
+                  <span>Admin and user management</span>
+                  <span className="font-semibold">Included</span>
                 </div>
               </div>
             </div>
@@ -259,7 +259,7 @@ function MarketingHome() {
               Pricing preview
             </p>
             <h2 className="font-serif text-4xl">
-              Placeholder tiers that still feel launch-ready.
+              Simple tiers your leads can understand.
             </h2>
           </div>
           <Button asChild variant="ghost">
@@ -271,24 +271,24 @@ function MarketingHome() {
             {
               name: 'Starter',
               price: '$0',
-              points: ['Hosted auth', 'Dashboard shell', 'Email helpers'],
+              points: ['Up to 3 seats', 'Core dashboards', 'Email support'],
             },
             {
               name: 'Pro',
               price: '$49',
               points: [
+                'Unlimited seats',
+                'Advanced reporting',
                 'Priority support',
-                'Advanced analytics',
-                'Admin workflows',
               ],
             },
             {
               name: 'Scale',
               price: '$199',
               points: [
-                'SLA placeholder',
-                'Dedicated onboarding',
-                'Custom integrations',
+                'Dedicated success manager',
+                'SLA options',
+                'Custom contracts',
               ],
             },
           ].map((tier) => (
@@ -329,7 +329,7 @@ function MarketingHome() {
             FAQ
           </p>
           <h2 className="mt-3 font-serif text-4xl">
-            A few practical questions founders usually ask.
+            Questions buyers ask before they try the product.
           </h2>
         </div>
         <Accordion className="space-y-4" collapsible type="single">
@@ -347,14 +347,14 @@ function MarketingHome() {
           <CardContent className="flex flex-col gap-8 p-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl space-y-3">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Final CTA
+                Ready when you are
               </p>
               <h2 className="font-serif text-4xl">
-                Put your product idea on top of a complete SaaS skeleton.
+                Put your roadmap on top of a complete customer experience.
               </h2>
               <p className="text-muted-foreground">
-                Replace the placeholder story, wire your real schema, and keep
-                the platform plumbing you would rather not rebuild.
+                Swap in your brand, connect your data, and keep the flows that
+                already feel production-grade.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">

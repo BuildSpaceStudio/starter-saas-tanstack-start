@@ -29,7 +29,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
       {
         name: 'description',
         content:
-          'A polished Buildspace starter SaaS built with TanStack Start, Drizzle, and shadcn/ui.',
+          'Your Product — a modern SaaS template with marketing pages, customer dashboard, and admin tools.',
       },
     ],
   }),

@@ -110,8 +110,8 @@ function SettingsPage() {
           <CardHeader>
             <CardTitle>Profile</CardTitle>
             <CardDescription>
-              This mutation runs through a server function and invalidates the
-              settings and dashboard caches.
+              Update how your name and photo appear across the app. Email is
+              managed at sign-in.
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">

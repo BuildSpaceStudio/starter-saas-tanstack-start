@@ -43,8 +43,8 @@ function AuthCallbackPage() {
             We’re setting up your workspace.
           </h1>
           <p className="max-w-md text-sm text-muted-foreground">
-            Your hosted Buildspace session is being exchanged for a secure local
-            cookie and starter user record.
+            Hang tight while we finish signing you in and preparing your
+            workspace.
           </p>
         </div>
       </div>

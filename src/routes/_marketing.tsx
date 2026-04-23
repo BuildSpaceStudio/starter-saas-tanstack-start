@@ -36,10 +36,8 @@ function MarketingLayout() {
             <a href="/#features">Features</a>
             <Link to="/pricing">Pricing</Link>
             <a href="/#faq">FAQ</a>
-            <a href="https://docs.buildspace.studio">Docs</a>
-            <a href="https://github.com/buildspacestudio/starter-saas-tanstack-start">
-              GitHub
-            </a>
+            <a href="/#faq">Help</a>
+            <a href="mailto:hello@example.com">Contact</a>
           </nav>
           <div className="flex items-center gap-3">
             <ThemeToggle />
@@ -77,32 +75,23 @@ function MarketingLayout() {
           </div>
           <div className="space-y-3 text-sm">
             <p className="font-semibold">Resources</p>
-            <a
-              className="block text-muted-foreground"
-              href="https://docs.buildspace.studio"
-            >
-              Docs
+            <a className="block text-muted-foreground" href="/#faq">
+              Help center
             </a>
-            <a
-              className="block text-muted-foreground"
-              href="https://github.com/buildspacestudio/starter-saas-tanstack-start"
-            >
-              GitHub
+            <a className="block text-muted-foreground" href="/pricing">
+              Plans
             </a>
           </div>
           <div className="space-y-3 text-sm">
-            <p className="font-semibold">Built on</p>
+            <p className="font-semibold">Company</p>
             <a
               className="block text-muted-foreground"
-              href="https://buildspace.studio"
+              href="mailto:hello@example.com"
             >
-              Buildspace
+              Contact
             </a>
-            <a
-              className="block text-muted-foreground"
-              href="https://docs.buildspace.studio"
-            >
-              Buildspace docs
+            <a className="block text-muted-foreground" href="/privacy">
+              Privacy
             </a>
           </div>
         </div>

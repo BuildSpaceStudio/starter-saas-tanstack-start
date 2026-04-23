@@ -67,11 +67,7 @@ function AppLayout() {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Workspace</p>
-                <h1 className="text-lg font-semibold">
-                  {viewer.localUser.role === 'super_admin'
-                    ? 'Founder control panel'
-                    : 'Member dashboard'}
-                </h1>
+                <h1 className="text-lg font-semibold">Your workspace</h1>
               </div>
             </div>
             <div className="flex items-center gap-3">

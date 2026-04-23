@@ -26,13 +26,14 @@ export const updateUserRole = createServerFn({ method: 'POST' })
       throw new Error('User not found.')
     }
 
-    if (
-      targetUser.role === 'super_admin' &&
-      data.role === 'member' &&
-      targetUser.id === session.localUser.id
-    ) {
-      const superAdminCount = await countSuperAdmins()
+    if (data.userId === session.localUser.id && data.role === 'member') {
+      throw new Error(
+        'You cannot change your own role to member. Ask another super admin to update your access if needed.',
+      )
+    }
 
+    if (targetUser.role === 'super_admin' && data.role === 'member') {
+      const superAdminCount = await countSuperAdmins()
       if (superAdminCount <= 1) {
         throw new Error('At least one super admin must remain.')
       }
