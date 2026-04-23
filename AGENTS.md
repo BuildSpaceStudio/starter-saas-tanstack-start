@@ -1,12 +1,15 @@
-# Agent Guide
+# Agent guide
 
-- Auth goes through `@buildspacestudio/sdk`. Never import Better Auth directly.
-- Database tables live in `src/lib/db/schema.ts`.
-- Use server functions for mutations. Do not add random mutable POST endpoints.
-- Protected pages belong under `src/routes/_app.tsx`; admin pages belong under `src/routes/_app.admin.tsx`.
-- TanStack Query owns server-state caching. Invalidate query keys after successful mutations.
-- `src/routeTree.gen.ts` is generated. Never hand-edit it.
-- Events use the starter wrappers and must not leak secrets or noisy PII.
-- Emails use helpers in `src/lib/notifications/index.ts`. Do not install another mail provider.
-- Transactional emails do not require `marketingOptIn`; any future marketing mail must respect it.
-- Run `bun run typecheck && bun run lint && bun run build` before committing.
+This is a **BuildSpace SaaS starter** on TanStack Start (React, Drizzle, TanStack Query/Router) with platform auth and integrations via `@buildspacestudio/sdk`.
+
+**Package manager:** [Bun](https://bun.sh). Scripts run with `bun run <script>` (see `package.json`).
+
+**Before commit:** `bun run typecheck && bun run lint && bun run build`
+
+**More detail (load when relevant):**
+
+[docs/agent-conventions.md](docs/agent-conventions.md) — auth, routes, data layer, events, and email.
+
+For notification templates: [docs/notifications.md](docs/notifications.md).
+
+TanStack Start patterns: `.claude/skills/tanstack-start/SKILL.md`.

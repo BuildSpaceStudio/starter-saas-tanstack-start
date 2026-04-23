@@ -1,4 +1,5 @@
 import { getServerClient } from '@/lib/buildspace/server'
+import { getSiteUrl, siteConfig } from '@/lib/site-config'
 import {
   notificationTemplateSlugs,
   renderAccountDeletedEmail,
@@ -8,6 +9,15 @@ import {
 } from './templates'
 
 type Recipient = string | string[]
+
+function baseTemplateVariables() {
+  return {
+    productName: siteConfig.name,
+    creatorEmail: siteConfig.creatorEmail,
+    dashboardUrl: getSiteUrl(siteConfig.links.dashboard),
+    siteUrl: getSiteUrl('/'),
+  }
+}
 
 async function sendTemplateWithFallback({
   templateSlug,
@@ -27,11 +37,12 @@ async function sendTemplateWithFallback({
   metadata?: Record<string, string>
 }) {
   const client = getServerClient()
+  const mergedVariables = { ...baseTemplateVariables(), ...variables }
 
   try {
     return await client.notifications.sendTemplate(templateSlug, {
       to,
-      variables,
+      variables: mergedVariables,
       metadata,
     })
   } catch {
@@ -40,6 +51,7 @@ async function sendTemplateWithFallback({
       subject: fallback.subject,
       html: fallback.html,
       text: fallback.text,
+      replyTo: siteConfig.creatorEmail,
       metadata,
     })
   }
