@@ -1,0 +1,35 @@
+{
+  "name": "starter-saas-tanstack-start",
+  "version": "1.0.0",
+  "description": "TanStack Start project scaffolded from scratch",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuildSpaceStudio/starter-saas-tanstack-start.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/BuildSpaceStudio/starter-saas-tanstack-start/issues"
+  },
+  "homepage": "https://github.com/BuildSpaceStudio/starter-saas-tanstack-start#readme",
+  "dependencies": {
+    "@tanstack/react-router": "^1.168.23",
+    "@tanstack/react-start": "^1.167.42",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10"
+  }
+}
