@@ -1,3 +1,15 @@
 node_modules
+.env
+.env.local
+.env.production
+local.db
+local.db-*
+.output
+.vinxi
+.turbo
+.tanstack
 dist
+coverage
+.DS_Store
+.claude/settings.local.json
 .DS_Store
