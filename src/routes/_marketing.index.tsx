@@ -136,7 +136,7 @@ function MarketingHome() {
               </Button>
             </div>
           </div>
-          <Card className="glass-panel max-w-xl border-white/10 bg-slate-950 text-slate-100">
+          <Card className="max-w-xl border border-white/10 bg-slate-950/95 text-slate-100 shadow-xl backdrop-blur-[18px]">
             <CardContent className="space-y-6 p-8">
               <div className="flex items-center justify-between">
                 <div>

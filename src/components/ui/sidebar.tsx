@@ -48,26 +48,40 @@ function SidebarNav({
 export function Sidebar({
   items,
   currentPath,
-  children,
+  footer,
 }: {
   items: SidebarItem[]
   currentPath: string
-  children?: React.ReactNode
+  footer?: React.ReactNode
 }) {
+  const brand = (
+    <div className="mb-6 flex shrink-0 items-center gap-3 px-2">
+      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-sidebar-primary text-sidebar-primary-foreground">
+        YP
+      </div>
+      <div>
+        <p className="text-sm font-semibold text-sidebar-foreground">Your Product</p>
+        <p className="text-xs text-muted-foreground">Starter SaaS</p>
+      </div>
+    </div>
+  )
+
+  const nav = (
+    <div className="min-h-0 flex-1 overflow-y-auto px-1 pb-2">
+      <SidebarNav currentPath={currentPath} items={items} />
+    </div>
+  )
+
+  const footerSlot = footer ? (
+    <div className="shrink-0 border-t border-sidebar-border px-2 pb-2 pt-4">{footer}</div>
+  ) : null
+
   return (
     <>
-      <aside className="hidden h-full w-72 shrink-0 border-r border-sidebar-border bg-sidebar px-5 py-6 lg:block">
-        <div className="mb-8 flex items-center gap-3 px-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-sidebar-primary text-sidebar-primary-foreground">
-            YP
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-sidebar-foreground">Your Product</p>
-            <p className="text-xs text-muted-foreground">Starter SaaS</p>
-          </div>
-        </div>
-        <SidebarNav currentPath={currentPath} items={items} />
-        {children ? <div className="mt-6">{children}</div> : null}
+      <aside className="hidden h-full min-h-0 w-72 shrink-0 flex-col border-r border-sidebar-border bg-sidebar px-5 py-6 lg:flex">
+        {brand}
+        {nav}
+        {footerSlot}
       </aside>
       <div className="lg:hidden">
         <Sheet>
@@ -77,10 +91,10 @@ export function Sidebar({
               <span className="sr-only">Open navigation</span>
             </Button>
           </SheetTrigger>
-          <SheetContent className="left-0 top-0 h-full max-w-sm translate-x-0 translate-y-0 rounded-none border-r">
-            <div className="mt-10">
-              <SidebarNav currentPath={currentPath} items={items} />
-            </div>
+          <SheetContent className="left-0 top-0 flex h-full max-w-sm translate-x-0 translate-y-0 flex-col rounded-none border-r p-6">
+            {brand}
+            {nav}
+            {footerSlot}
           </SheetContent>
         </Sheet>
       </div>
