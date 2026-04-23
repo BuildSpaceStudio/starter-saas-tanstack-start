@@ -1,6 +1,21 @@
 {
   "version": 1,
   "skills": {
+    "buildspace-cli": {
+      "source": "buildspacestudio/skills",
+      "sourceType": "github",
+      "computedHash": "2dbfd432ef3fd54da4957d59b9ba9ef8d47691391da3b93b24a78cf440bbe521"
+    },
+    "buildspace-examples": {
+      "source": "buildspacestudio/skills",
+      "sourceType": "github",
+      "computedHash": "17c847c0c9193bd4e63229f6fc8954b0c8663f6199cabadbe9cae5e4aa23ebb9"
+    },
+    "buildspace-sdk": {
+      "source": "buildspacestudio/skills",
+      "sourceType": "github",
+      "computedHash": "b82ec731efbdedbd76de23284f5e20c5ec0a3c29f5afe1da98f0907c61534171"
+    },
     "tanstack-start": {
       "source": "tanstack-skills/tanstack-skills",
       "sourceType": "github",
